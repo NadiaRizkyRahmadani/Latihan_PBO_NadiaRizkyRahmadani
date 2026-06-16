@@ -3,9 +3,9 @@
 
 class Database {
     private $host = "localhost";
-    private $username = "root"; // Sesuaikan dengan username database Anda
-    private $password = "";     // Sesuaikan dengan password database Anda
-    private $db_name = "db_latihan_pbo_ti1c_nadiarizkyrahmadani"; // Ubah sesuai nama database Anda
+    private $username = "root"; 
+    private $password = "";     
+    private $db_name = "db_latihan_pbo_ti1c_nadiarizkyrahmadani"; 
     public $conn;
 
     public function getConnection() {
