@@ -25,9 +25,9 @@ class TiketIMAX extends Tiket {
         return $daftar;
     }
 
+    // [Tahap 5] Overriding: Dikenakan biaya tambahan flat Rp 35.000
     public function hitungTotalHarga() {
-        $biayaTambahan = 25000;
-        return ($this->hargaDasarTiket + $biayaTambahan) * $this->jumlah_kursi;
+        return ($this->jumlah_kursi * $this->hargaDasarTiket) + 35000;
     }
 
     public function tampilkanInfoFasilitas() {

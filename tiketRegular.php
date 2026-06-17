@@ -2,7 +2,7 @@
 // TiketReguler.php
 require_once 'Tiket.php';
 
-class TiketRegular extends Tiket {
+class TiketReguler extends Tiket {
     private $tipeAudio;
     private $lokasiBaris;
 
@@ -13,20 +13,21 @@ class TiketRegular extends Tiket {
     }
 
     // Fungsi khusus untuk mengambil semua data tiket Regular dari database
-    public static function getTiketRegular($db) {
-        $query = "SELECT * FROM tabel_tiket WHERE jenis_studio = 'Regular'";
+    public static function getTiketReguler($db) {
+        $query = "SELECT * FROM tabel_tiket WHERE jenis_studio = 'Reguler'";
         $stmt = $db->prepare($query);
         $stmt->execute();
         
         $daftar = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $daftar[] = new self($row); // 'self' merujuk ke kelas TiketRegular itu sendiri
+            $daftar[] = new self($row);
         }
         return $daftar;
     }
 
+    // [Tahap 5] Overriding: Tarif standar murni tanpa biaya tambahan
     public function hitungTotalHarga() {
-        return $this->hargaDasarTiket * $this->jumlah_kursi;
+        return $this->jumlah_kursi * $this->hargaDasarTiket;
     }
 
     public function tampilkanInfoFasilitas() {

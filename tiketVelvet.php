@@ -25,9 +25,9 @@ class TiketVelvet extends Tiket {
         return $daftar;
     }
 
+    // [Tahap 5] Overriding: Surcharge kelas premium sebesar 50% (dikali 1.50)
     public function hitungTotalHarga() {
-        $serviceCharge = 50000;
-        return ($this->hargaDasarTiket * $this->jumlah_kursi) + $serviceCharge;
+        return ($this->jumlah_kursi * $this->hargaDasarTiket) * 1.50;
     }
 
     public function tampilkanInfoFasilitas() {
